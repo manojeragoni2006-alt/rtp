@@ -77,15 +77,27 @@ function displayItems() {
   
     items.forEach(function (data) {
         let li = document.createElement("li");
+        li.className = "item-card"; // This links it to your new CSS!
+        
+        // Determine the badge color
+        let badgeClass = data.type === "Lost" ? "badge-lost" : "badge-found";
+
+        // Build the professional card layout
         li.innerHTML = `
-        <b>${data.type} Item</b><br>
-        👤 Name: ${data.name}<br>
-        📞 Phone: ${data.phone}<br>
-        📦 Item: ${data.item}<br>
-        📝 Description: ${data.description}<br>
-        ${data.photo ? `<img src="${data.photo}" width="120"><br>` : ""}
-        <button onclick="deleteItem('${data.id}')">🗑 Delete</button>
-        <hr>
+            <div class="card-image">
+                ${data.photo ? `<img src="${data.photo}">` : `<div style="height: 180px; background: #ddd; display: flex; align-items: center; justify-content: center;">📸 No Photo</div>`}
+            </div>
+            <div class="card-content">
+                <span class="badge ${badgeClass}">${data.type.toUpperCase()}</span>
+                <h3 style="margin: 10px 0;">${data.item}</h3>
+                <p style="color: #666; font-size: 14px;">📝 ${data.description}</p>
+                <hr style="border: 0; border-top: 1px solid #eee; margin: 15px 0;">
+                <p style="margin: 5px 0; font-size: 14px;">👤 <b>${data.name}</b></p>
+                <p style="margin: 5px 0; font-size: 14px;">📞 ${data.phone}</p>
+                <button onclick="deleteItem('${data.id}')" style="width: 100%; margin-top: 10px; background: #e74c3c; color: white; border: none; padding: 10px; border-radius: 6px; cursor: pointer;">
+                    🗑 Resolve / Delete
+                </button>
+            </div>
         `;
         list.appendChild(li);
     });

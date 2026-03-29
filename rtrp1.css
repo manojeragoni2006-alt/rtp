@@ -170,3 +170,46 @@ img {
 .logout-btn:hover {
     background: #c0392b;
 }
+
+/* --- PROFESSIONAL CARD GRID --- */
+#itemList {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+    list-style: none;
+    padding: 0;
+}
+
+.item-card {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    overflow: hidden;
+    color: #333;
+    transition: transform 0.2s;
+}
+
+.item-card:hover {
+    transform: translateY(-5px); /* Makes the card "lift" when you hover */
+}
+
+.card-image img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover; /* Keeps images looking perfect, never stretched */
+}
+
+.card-content {
+    padding: 15px;
+}
+
+/* Badges for Lost vs Found */
+.badge {
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+    color: white;
+}
+.badge-lost { background: #e74c3c; } /* Red */
+.badge-found { background: #2ecc71; } /* Green */
