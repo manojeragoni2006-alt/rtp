@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Lost & Found Portal</title>
+    <link rel="stylesheet" href="rtrp1.css">
+
+    <script>
+        let user = localStorage.getItem("loggedInUser");
+
+        if (!user) {
+            alert("Please login first");
+            window.location.href = "login.html";
+        }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
+    <script>
+        (function () {
+            emailjs.init("rqnehy5H4nY4Cvdgb");
+        })();
+    </script>
+
+
+</head>
+
+<body>
+
+    <header>
+        <h1>🎓 College Lost & Found Portal</h1>
+
+    </header>
+
+    <!-- Notification Message -->
+    <div id="message"></div>
+
+    <!-- Dashboard -->
+    <div class="dashboard">
+        📊 Lost Items: <span id="lostCount">0</span> |
+        Found Items: <span id="foundCount">0</span>
+    </div>
+
+    <div class="container">
+
+        <!-- Report Form -->
+        <div class="form-section">
+            <h2>Report Item</h2>
+
+            <input type="text" id="name" placeholder="Your Name">
+            <input type="tel" id="phone" placeholder="Phone Number">
+            <input type="text" id="item" placeholder="Item Name">
+
+            <select id="type">
+                <option value="Lost">Lost</option>
+                <option value="Found">Found</option>
+            </select>
+
+            <textarea id="description" placeholder="Description"></textarea>
+
+            <input type="file" id="photo" accept="image/*">
+
+            <button onclick="addItem()">Submit</button>
+        </div>
+
+        <!-- Item List -->
+        <div class="list-section">
+            <h2>Reported Items</h2>
+
+            <input type="text" id="search" placeholder="🔍 Search items..." onkeyup="searchItems()">
+
+            <ul id="itemList"></ul>
+        </div>
+
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore-compat.js"></script>
+
+    <script src="rtrp1.js"></script>
+
+
+    <button class="logout-btn" onclick="logout()">Logout</button>
+</body>
+
+</html>
