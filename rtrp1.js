@@ -163,3 +163,58 @@ function logout() {
     // Send them back to the login page
     window.location.href = "login.html";
 }
+// ==========================================
+// 6. REAL REGISTRATION & LOGIN SYSTEM
+// ==========================================
+
+function register() {
+    let user = document.getElementById("username").value;
+    let pass = document.getElementById("password").value;
+
+    if (user === "" || pass === "") {
+        document.getElementById("error-message").style.color = "#ff6b6b";
+        document.getElementById("error-message").innerText = "⚠️ Please enter a username and password to register.";
+        return;
+    }
+
+    // Check if user already exists
+    if (localStorage.getItem(user) !== null) {
+        document.getElementById("error-message").style.color = "#ff6b6b";
+        document.getElementById("error-message").innerText = "⚠️ Username already exists! Please log in.";
+        return;
+    }
+
+    // Save the new user's password locally
+    localStorage.setItem(user, pass);
+    
+    // Success message
+    document.getElementById("error-message").style.color = "#2ecc71"; // Green text
+    document.getElementById("error-message").innerText = "✅ Registered successfully! You can now click Login.";
+}
+
+function login() {
+    let user = document.getElementById("username").value;
+    let pass = document.getElementById("password").value;
+    let role = document.getElementById("role").value;
+
+    if (user === "" || pass === "") {
+        document.getElementById("error-message").style.color = "#ff6b6b";
+        document.getElementById("error-message").innerText = "⚠️ Please enter your username and password.";
+        return;
+    }
+
+    // Grab the saved password for this user
+    let savedPass = localStorage.getItem(user);
+
+    // Check if the user exists AND the password matches
+    if (savedPass !== null && savedPass === pass) {
+        // Correct! Let them in.
+        localStorage.setItem("loggedInUser", user);
+        localStorage.setItem("role", role);
+        window.location.href = "index.html"; 
+    } else {
+        // Wrong username or password
+        document.getElementById("error-message").style.color = "#ff6b6b";
+        document.getElementById("error-message").innerText = "❌ Incorrect username or password.";
+    }
+}

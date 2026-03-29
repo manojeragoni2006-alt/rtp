@@ -5,16 +5,21 @@
     box-sizing: border-box;
 }
 
-/* BODY BACKGROUND */
+/* --- THE LIVING BACKGROUND --- */
 body {
-    font-family: Arial, sans-serif;
-    min-height: 100vh;
-
-    background-image: url("lost_found.jpg");
+    background-image: url('YOUR_IMAGE_NAME.jpg'); /* Make sure your image name is here */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
+    font-family: 'Poppins', sans-serif;
+    color: white;
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
 /* DARK OVERLAY */
@@ -213,3 +218,292 @@ img {
 }
 .badge-lost { background: #e74c3c; } /* Red */
 .badge-found { background: #2ecc71; } /* Green */
+
+/* --- MAGNETIC BUTTONS --- */
+button {
+    background: linear-gradient(90deg, #00c6ff 0%, #0072ff 100%);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 50px; /* Pill shape */
+    font-weight: bold;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease; /* Smooth animation */
+    box-shadow: 0 4px 15px rgba(0, 114, 255, 0.4);
+}
+
+button:hover {
+    transform: translateY(-3px) scale(1.05); /* Lifts up and grows slightly */
+    box-shadow: 0 8px 25px rgba(0, 114, 255, 0.6); /* Glow gets bigger */
+}
+
+button:active {
+    transform: translateY(1px); /* Clicks down */
+}
+/* --- CUSTOM SCROLLBAR --- */
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.2);
+}
+::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.8);
+}
+
+/* --- FROSTED GLASS EFFECT --- */
+.container, .item-card {
+    background: rgba(255, 255, 255, 0.1); 
+    backdrop-filter: blur(16px); 
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.3); 
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3); 
+    border-radius: 20px; 
+    color: white; 
+}
+
+input, select, textarea {
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    color: white;
+    border-radius: 8px;
+    padding: 10px;
+}
+input::placeholder, textarea::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+/* =========================================
+   PROFESSIONAL LOGIN PAGE STYLES
+   ========================================= */
+
+/* Center everything on the screen */
+.login-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Takes up the full height of the screen */
+    width: 100%;
+}
+
+/* The Frosted Glass Box */
+.glass-login-box {
+    background: rgba(0, 0, 0, 0.8); /* Changed to dark black/transparent */
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 40px;
+    border-radius: 24px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+/* Header Styling */
+.login-header {
+    margin-bottom: 30px;
+}
+.logo-emoji {
+    font-size: 48px;
+    margin-bottom: 10px;
+    display: block;
+}
+.login-header h2 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+.login-header p {
+    margin: 5px 0 0;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* Input Fields */
+.input-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+.input-group label {
+    display: block;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+    color: rgba(255, 255, 255, 0.9);
+}
+.input-group input, .input-group select {
+    width: 100%;
+    padding: 12px 15px;
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    color: white;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    box-sizing: border-box; /* Prevents inputs from breaking out of the box */
+}
+
+/* Make it glow when you click to type */
+.input-group input:focus, .input-group select:focus {
+    outline: none;
+    border-color: #00c6ff;
+    background: rgba(0, 0, 0, 0.4);
+    box-shadow: 0 0 15px rgba(0, 198, 255, 0.3);
+}
+
+/* The Big Login Button */
+.glow-btn {
+    width: 100%;
+    padding: 15px;
+    margin-top: 10px;
+    font-size: 16px;
+    background: linear-gradient(135deg, #00c6ff, #0072ff);
+    border-radius: 12px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+.glow-btn:hover {
+    box-shadow: 0 10px 20px rgba(0, 114, 255, 0.4);
+    transform: translateY(-2px);
+}
+/* --- OVERRIDE: FIXING THE BACKGROUND AND VISIBILITY --- */
+
+/* 1. Stop the image from repeating and stretch it to fit */
+body {
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    background-attachment: fixed !important;
+    margin: 0;
+    min-height: 100vh;
+}
+
+/* 2. Make the login box dark so the text is visible */
+.glass-login-box {
+    background: rgba(0, 0, 0, 0.85) !important; /* Dark black/transparent box */
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 40px;
+    border-radius: 24px;
+    color: white !important; /* Forces all text inside to be white */
+}
+
+/* 3. Make sure the headers and labels are white */
+.login-header h2, .login-header p, .input-group label {
+    color: white !important; 
+}
+
+/* 4. Style the new Register text link */
+.register-section {
+    margin-top: 20px;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.8);
+}
+.register-section a {
+    color: #00c6ff; /* Cool blue color for the link */
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+}
+.register-section a:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+/* =========================================
+   MAIN DASHBOARD PREMIUM UPGRADE
+   ========================================= */
+
+/* 1. The Moving Background */
+body {
+    background: linear-gradient(-45deg, #1e3c72, #2a5298, #0e1c26, #0072ff) !important;
+    background-size: 400% 400% !important;
+    animation: gradientBG 15s ease infinite !important;
+    color: white !important;
+    min-height: 100vh;
+}
+
+/* 2. The Dark Glass Panels (For your left and right columns) */
+.glass-panel {
+    background: rgba(0, 0, 0, 0.6) !important; /* Dark translucent */
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5) !important;
+    border-radius: 20px !important;
+    color: white !important;
+}
+
+/* Force headers and text to be white inside the glass */
+.glass-panel h2, .glass-panel label, .glass-panel p {
+    color: white !important;
+}
+
+/* 3. Sleek Inputs */
+input, select, textarea {
+    background: rgba(255, 255, 255, 0.05) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    color: white !important;
+    border-radius: 10px !important;
+    padding: 12px !important;
+}
+input:focus, select:focus, textarea:focus {
+    border-color: #00c6ff !important;
+    box-shadow: 0 0 15px rgba(0, 198, 255, 0.4) !important;
+    outline: none !important;
+}
+
+/* 4. Fix the Ugly File Upload Button */
+input[type="file"] {
+    background: rgba(0, 0, 0, 0.3) !important;
+    border: 2px dashed rgba(255, 255, 255, 0.4) !important;
+    padding: 10px !important;
+    cursor: pointer !important;
+}
+input[type="file"]::file-selector-button {
+    background: linear-gradient(135deg, #00c6ff, #0072ff) !important;
+    color: white !important;
+    border: none !important;
+    padding: 8px 16px !important;
+    border-radius: 8px !important;
+    font-weight: bold !important;
+    cursor: pointer !important;
+    margin-right: 15px !important;
+    transition: 0.3s !important;
+}
+
+/* 5. Item Cards Upgrade */
+.item-card {
+    background: rgba(255, 255, 255, 0.1) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    color: white !important;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3) !important;
+}
+/* --- DASHBOARD SIZE & SPACING FIX --- */
+
+/* 1. Stop the panels from getting too wide */
+.glass-panel {
+    width: 100% !important;
+    max-width: 450px !important; /* 👈 This is the magic number that shrinks it! */
+    margin: 30px auto !important; /* Centers the boxes and adds breathing room */
+    box-sizing: border-box !important;
+}
+
+/* 2. Adjust the inside spacing so inputs don't feel squished */
+.glass-panel input, .glass-panel select, .glass-panel textarea {
+    margin-bottom: 15px !important;
+    font-size: 14px !important;
+}
+
+/* 3. Make the main Submit button look proportional */
+.glass-panel button[type="submit"], .glass-panel .glow-btn {
+    width: 100% !important;
+    padding: 12px !important;
+    font-size: 16px !important;
+    border-radius: 10px !important;
+} 
